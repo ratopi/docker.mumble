@@ -2,12 +2,17 @@ version: "3"
 
 services:
   mumble:
-    image: ratopi/mumble:1.3.0
+    image: ratopi/mumble:1.3.0-1
     build:
       context: .
     ports:
        - "64738:64738"
     volumes:
-       - "./data/conf/:/conf/"
+       - "mumble_conf:/conf/"
     restart: unless-stopped
+
+volumes:
+  mumble_conf:
+    external:
+      name: mumble_conf
 
