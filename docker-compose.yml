@@ -6,7 +6,8 @@ services:
     build:
       context: .
     ports:
-       - "64738:64738"
+       - "64738:64738/tcp"
+       - "64738:64738/udp"
     volumes:
        - "mumble_conf:/conf/"
     restart: unless-stopped
